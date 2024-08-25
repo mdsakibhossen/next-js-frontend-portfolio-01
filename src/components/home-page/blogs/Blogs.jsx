@@ -24,7 +24,7 @@ const Blogs = () => {
   }, []);
   const blog = blogs[0];
   return (
-    <SecContainer classes="blogs bg-secondary py-20 min-h-screen">
+    <SecContainer classes="blogs bg-secondary py-20 min-h-screen overflow-hidden">
       <div className="top-inidicator mb-10">
         <ScrollingIndicator />
       </div>

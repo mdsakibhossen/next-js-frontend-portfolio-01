@@ -5,7 +5,7 @@ import SkillInfoBox from "./skill-info-box/SkillInfoBox";
 
 const Hero = () => {
   return (
-    <SecContainer classes="hero overflow-x-hidden bg-secondary min-h-screen py-20 text-white/95">
+    <SecContainer classes="hero overflow-hidden bg-secondary min-h-screen py-20 text-white/95">
       <h1 className="hero__title text-5xl md:text-6xl xl:text-7xl text-center text-primary my-8">
         Developer
       </h1>

@@ -4,27 +4,30 @@ import ScrollingIndicator from "@/components/scrolling-indicator/ScrollingIndica
 import SecContainer from "@/components/sec-container/SecContainer";
 import SecHeader from "@/components/sec-header/SecHeader";
 import { animateSecHeader } from "@/utils/gsap/common/animateSecHeader";
-import { animateContactForm, animateContactHeading } from "@/utils/gsap/home-page/animateContact";
+import {
+  animateContactForm,
+  animateContactHeading,
+} from "@/utils/gsap/home-page/animateContact";
 import { animateScrollIndicator } from "@/utils/gsap/home-page/animateScrollIndicator";
 import { useGSAP } from "@gsap/react";
 import { useState } from "react";
 import { FiSend } from "react-icons/fi";
 
 const Contact = () => {
-  const [alertMsg,setAlertMsg] = useState({
+  const [alertMsg, setAlertMsg] = useState({
     text: "",
-    isSucceed: true
+    isSucceed: true,
   });
   useGSAP(() => {
     animateScrollIndicator(".contact .top-inidicator");
     animateSecHeader(
       ".contact .sec-header .title, .contact .sec-header .sub-title"
     );
-    animateContactHeading()
-    animateContactForm()
+    animateContactHeading();
+    animateContactForm();
   }, []);
 
-  const submitHandler = (e)=>{
+  const submitHandler = (e) => {
     e.preventDefault();
     const fullName = e.target[0].value;
     const email = e.target[1].value;
@@ -34,12 +37,16 @@ const Contact = () => {
     if (!fullName.trim() || !email.trim() || !msg.trim()) {
       setAlertMsg({
         text: "Please Enter All The Fields...",
-        isSucceed: false
-      })
+        isSucceed: false,
+      });
       return false;
     }
 
-    if (!email.includes("@") || !email.includes(".") || email.trim().length < 7 ) {
+    if (
+      !email.includes("@") ||
+      !email.includes(".") ||
+      email.trim().length < 7
+    ) {
       setAlertMsg({
         text: "Please Enter Your Valid Emails...",
         isSucceed: false,
@@ -48,15 +55,12 @@ const Contact = () => {
     }
 
     setAlertMsg({
-        text: "Message Send Successfully!!!",
-        isSucceed: true,
-      });
-
-
-
-  }
+      text: "Message Send Successfully!!!",
+      isSucceed: true,
+    });
+  };
   return (
-    <SecContainer classes="contact bg-black/90 py-20 min-h-screen">
+    <SecContainer classes="contact bg-black/90 py-20 min-h-screen overflow-hidden">
       <div className="top-inidicator mb-10">
         <ScrollingIndicator />
       </div>
@@ -71,7 +75,15 @@ const Contact = () => {
           Send me a Message
         </h2>
         <div className="form-box mt-10">
-          {alertMsg.text && <small className={`inline-block ${alertMsg.isSucceed ? "text-green-400" : "text-red-400"}`}>{alertMsg.text}</small>}
+          {alertMsg.text && (
+            <small
+              className={`inline-block ${
+                alertMsg.isSucceed ? "text-green-400" : "text-red-400"
+              }`}
+            >
+              {alertMsg.text}
+            </small>
+          )}
           <form action="" onSubmit={submitHandler}>
             <div className="flex flex-col gap-6 md:flex-row mb-6 md:mb-10">
               <div className="single-field w-full flex flex-col">

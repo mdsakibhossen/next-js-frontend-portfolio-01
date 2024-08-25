@@ -17,7 +17,7 @@ const BlogsPageComp = () => {
     animateBlogPageButton();
   }, []);
   return (
-    <SecContainer classes="blogs bg-secondary pt-24 py-10">
+    <SecContainer classes="blogs bg-secondary pt-24 py-10 overflow-hidden">
       <div className="header text-white/70 mt-16">
         <SecHeader
           title={"Blogs"}
