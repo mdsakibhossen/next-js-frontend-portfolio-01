@@ -2,7 +2,7 @@ import { bottomToTop, leftToRight, rightToLeft, scroller, smallToLarge } from ".
 
 export const animateBlogCardImage = (trigger) => {
     const tl = scroller(trigger, {
-        start: "top 80%",
+        start: "top 90%",
         end: "top 30%",
     });
     smallToLarge(tl, trigger);
